@@ -1,0 +1,48 @@
+package TP;
+
+public class CapteurGPS extends Capteur {
+    private double latitude;
+    private double longitude;
+
+    public CapteurGPS(String code, Zone zone, double seuilMin, double seuilMax) {
+        super(code, zone, seuilMin, seuilMax);
+        this.latitude = 0.0;
+        this.longitude = 0.0;
+    }
+
+    public Releve envoyerPosition() {
+        Releve releve = new Releve(latitude, longitude, this);
+        return releve;
+    }
+
+    @Override
+    public Releve envoyerReleve() {
+        return envoyerPosition();
+    }
+
+    public void afficher() {
+        System.out.println("=== Capteur GPS ===");
+        System.out.println("Code: " + this.getCode());
+        System.out.println("Zone: " + this.getZone().getNom());
+        System.out.println("Statut: " + this.getStatut());
+        System.out.println("Latitude: " + this.latitude);
+        System.out.println("Longitude: " + this.longitude);
+    }
+
+    // Getters and Setters
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+}
