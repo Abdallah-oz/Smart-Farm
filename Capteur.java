@@ -1,5 +1,8 @@
 package TP;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public abstract class Capteur {
     private String code;
     private Zone zone;
@@ -13,6 +16,7 @@ public abstract class Capteur {
         this.seuilMin = seuilMin;
         this.seuilMax = seuilMax;
         this.statut = StatutCapteur.ACTIF;
+        GestionnaireCapteurs.ajouterCapteur(this);
     }
 
     public void desactiver() {
