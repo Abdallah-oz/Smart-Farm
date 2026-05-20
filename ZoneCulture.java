@@ -64,6 +64,14 @@ public class ZoneCulture extends Zone {
     public List<Culture> getCultures() {
         return cultures;
     }
+    //on affiche lensemble des cultures de la zone
+    public void afficherCultures(List<Culture> cultures) {
+        System.out.println("=== Cultures dans la Zone Culture ===");
+        for (Culture culture : this.cultures) {
+            culture.afficher();
+            System.out.println();
+        }
+    }
 
     public void setCultures(List<Culture> cultures) {
         this.cultures = cultures;

@@ -56,7 +56,14 @@ public class ZoneElevage extends Zone {
     public List<Animal> getAnimaux() {
         return animaux;
     }
-
+    //afficher lensemble des animaux de la zone
+    public void afficherAnimaux(List<Animal> animaux) {
+        System.out.println("=== Animaux dans la Zone Elevage ===");
+        for (Animal animal : this.animaux) {
+            animal.afficher();
+            System.out.println();
+        }
+    }
     public void setAnimaux(List<Animal> animaux) {
         this.animaux = animaux;
     }

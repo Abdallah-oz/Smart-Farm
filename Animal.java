@@ -1,5 +1,8 @@
 package TP;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public abstract class Animal {
     private String numero;
     private String nom;
@@ -7,6 +10,7 @@ public abstract class Animal {
     private int age;
     private double poids;
     private EtatSante etatSante;
+    private List<EvenementSanitaire> historique = new ArrayList<>();
 
     public Animal(String numero, String nom, String espece, int age, double poids, EtatSante etatSante) {
         this.numero = numero;
@@ -17,8 +21,21 @@ public abstract class Animal {
         this.etatSante = etatSante;
     }
 
-    public void changerEtatSante(EtatSante etatSante) {
-        this.etatSante = etatSante;
+    public void changerEtatSante(EtatSante nouvelEtat, double nouveauPoids) {
+        EvenementSanitaire ev = new EvenementSanitaire("Changement etat de sante", this.etatSante, nouvelEtat, this.poids, nouveauPoids);
+        this.historique.add(ev);
+        this.etatSante = nouvelEtat;
+        this.poids = nouveauPoids;
+    }
+
+    public void afficherHistorique() {
+        if (this.historique == null || this.historique.isEmpty()) {
+            System.out.println("Aucun evenement sanitaire");
+            return;
+        }
+        for (EvenementSanitaire ev : this.historique) {
+            ev.afficher();
+        }
     }
 
     public void afficher() {

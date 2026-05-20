@@ -2,7 +2,7 @@ package TP;
 
 import java.time.LocalDateTime;
 
-public abstract class Releve {
+public class Releve {
     private double valeur;
     private double longitude;
     private boolean isGPS;
