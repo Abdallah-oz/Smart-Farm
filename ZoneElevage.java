@@ -6,6 +6,8 @@ import java.util.List;
 public class ZoneElevage extends Zone {
     private TypeElevage type;
     private List<Animal> animaux;
+    private double longueur;
+    private double largeur;
     private ProgrammeAlimentation programme;
 
     public ZoneElevage(String code, String nom, TypeElevage type) {

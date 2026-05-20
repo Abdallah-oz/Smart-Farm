@@ -12,15 +12,15 @@ public class CapteurMesure extends Capteur {
         this.type = type;
     }
 
-    public Releve envoyerMesure(double valeur) {
+    public ReleveMesure envoyerMesure(double valeur) {
         this.valeur = valeur;
-        Releve releve = new Releve(valeur, this);
+        ReleveMesure releve = new ReleveMesure(valeur, this);
         return releve;
     }
 
     @Override
-    public Releve envoyerReleve() {
-        return new Releve(this.valeur, this);
+    public ReleveMesure envoyerReleve() {
+        return new ReleveMesure(this.valeur, this);
     }
 
     public void afficher() {

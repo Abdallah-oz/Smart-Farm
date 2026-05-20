@@ -10,13 +10,13 @@ public class CapteurGPS extends Capteur {
         this.longitude = 0.0;
     }
 
-    public Releve envoyerPosition() {
-        Releve releve = new Releve(latitude, longitude, this);
+    public ReleveGPS envoyerPosition() {
+        ReleveGPS releve = new ReleveGPS(latitude, longitude, this);
         return releve;
     }
 
     @Override
-    public Releve envoyerReleve() {
+    public ReleveGPS envoyerReleve() {
         return envoyerPosition();
     }
 

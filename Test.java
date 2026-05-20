@@ -10,15 +10,11 @@ public class Test {
         zone1.ajouterAnimal(v1);
         Volaille v2 = new Volaille("V002", "Poulet2", "Poulet", 3, 1.8, EtatSante.SAIN);
         zone1.ajouterAnimal(v2);
-       
-
-
-        zone1.afficherVueEnsemble();
-
-    zone1.setStatut(Statut.SUSPENDUE);
-        
-
-       zone1.afficherAnimaux(zone1.getAnimaux());
-    
+        //on gere les capteurs
+      
+        CapteurMesure capteur1 = new CapteurMesure("C001", zone1, 0, 10, "kg", TypeMesure.AZOTE);
+        capteur1.setValeur(100);
+        Releve releve1 = capteur1.envoyerReleve();
+        System.out.println("Relevé du capteur de mesure: " + releve1.getValeur() + " " + capteur1.getUnite());
 }
 }
