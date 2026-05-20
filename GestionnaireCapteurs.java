@@ -14,6 +14,10 @@ public class GestionnaireCapteurs {
         return capteurs;
     }
 
+    public static void clearCapteurs() {
+        capteurs.clear();
+    }
+
     public static List<Capteur> getCapteursByZone(Zone zone) {
         List<Capteur> resultat = new ArrayList<>();
         for (Capteur capteur : capteurs) {

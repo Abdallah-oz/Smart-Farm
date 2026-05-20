@@ -21,6 +21,7 @@ public class CapteurMesure extends Capteur {
         } catch (AlerteException e) {
             return new Alerte(releve, e.getGravite());
         }
+        
         return null;
     }
 

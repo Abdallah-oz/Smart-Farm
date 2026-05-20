@@ -10,11 +10,13 @@ public class ZoneElevage extends Zone {
     private double largeur;
     private ProgrammeAlimentation programme;
 
-    public ZoneElevage(String code, String nom, TypeElevage type) {
+    public ZoneElevage(String code, String nom, TypeElevage type,double longueur, double largeur) {
         super(code, nom);
         this.type = type;
         this.animaux = new ArrayList<>();
         this.programme = null;
+        this.longueur = longueur;
+        this.largeur = largeur;
     }
 
     public void ajouterAnimal(Animal animal) {
