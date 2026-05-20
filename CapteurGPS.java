@@ -10,14 +10,25 @@ public class CapteurGPS extends Capteur {
         this.longitude = 0.0;
     }
 
-    public ReleveGPS envoyerPosition() {
+    public Alerte envoyerPosition() {
         ReleveGPS releve = new ReleveGPS(latitude, longitude, this);
-        return releve;
+        try {
+            releve.verifierSeuil();
+        } catch (AlerteException e) {
+            return new Alerte(releve, e.getGravite());
+        }
+        return null;
     }
 
     @Override
-    public ReleveGPS envoyerReleve() {
-        return envoyerPosition();
+    public Alerte envoyerReleve() {
+        ReleveGPS releve = new ReleveGPS(latitude, longitude, this);
+        try {
+            releve.verifierSeuil();
+        } catch (AlerteException e) {
+            return new Alerte(releve, e.getGravite());
+        }
+        return null;
     }
 
     public void afficher() {

@@ -12,15 +12,26 @@ public class CapteurMesure extends Capteur {
         this.type = type;
     }
 
-    public ReleveMesure envoyerMesure(double valeur) {
+    public Alerte envoyerMesure(double valeur) {
         this.valeur = valeur;
         ReleveMesure releve = new ReleveMesure(valeur, this);
-        return releve;
+        try {
+            releve.verifierSeuil();
+        } catch (AlerteException e) {
+            return new Alerte(releve, e.getGravite());
+        }
+        return null;
     }
 
     @Override
-    public ReleveMesure envoyerReleve() {
-        return new ReleveMesure(this.valeur, this);
+    public Alerte envoyerReleve() {
+        ReleveMesure releve = new ReleveMesure(this.valeur, this);
+        try {
+            releve.verifierSeuil();
+        } catch (AlerteException e) {
+            return new Alerte(releve, e.getGravite());
+        }
+        return null;
     }
 
     public void afficher() {

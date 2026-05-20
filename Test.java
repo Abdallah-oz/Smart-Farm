@@ -14,7 +14,12 @@ public class Test {
       
         CapteurMesure capteur1 = new CapteurMesure("C001", zone1, 0, 10, "kg", TypeMesure.AZOTE);
         capteur1.setValeur(100);
-        Releve releve1 = capteur1.envoyerReleve();
-        System.out.println("Relevé du capteur de mesure: " + releve1.getValeur() + " " + capteur1.getUnite());
+        Alerte alerte1 = capteur1.envoyerReleve();
+        if (alerte1 == null) {
+            ReleveMesure releve1 = new ReleveMesure(capteur1.getValeur(), capteur1);
+            System.out.println("Relevé du capteur de mesure: " + releve1.getValeur() + " " + capteur1.getUnite());
+        } else {
+            alerte1.afficher();
+        }
 }
 }

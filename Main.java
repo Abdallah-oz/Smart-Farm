@@ -135,43 +135,39 @@
             
             // Relevé normal (dans les seuils)
             System.out.println("\n--- Relevé Normal (valeur=7.0) ---");
-            Releve releve1 = capteurMesure.envoyerMesure(7.0);
-            releve1.afficher();
-            
-            try {
-                releve1.verifierSeuil();
+            Alerte alerte1 = capteurMesure.envoyerMesure(7.0);
+            if (alerte1 == null) {
+                ReleveMesure releve1 = new ReleveMesure(7.0, capteurMesure);
+                releve1.afficher();
                 System.out.println("✓ Relevé valide - Aucune alerte");
-            } catch (AlerteException e) {
-                System.out.println("✗ Alerte déclenchée: " + e.getMessage());
+            } else {
+                alerte1.afficher();
             }
             
             // Relevé anormal (hors limites)
             System.out.println("\n--- Relevé Anormal (valeur=8.5) ---");
-            Releve releve2 = capteurMesure.envoyerMesure(8.5);
-            releve2.afficher();
-            
-            try {
-                releve2.verifierSeuil();
+            Alerte alerte2 = capteurMesure.envoyerMesure(8.5);
+            if (alerte2 == null) {
+                ReleveMesure releve2 = new ReleveMesure(8.5, capteurMesure);
+                releve2.afficher();
                 System.out.println(" Relevé valide - Aucune alerte");
-            } catch (AlerteException e) {
-                System.out.println("Alerte déclenchée: " + e.getMessage());
-                System.out.println("Gravité: " + e.getGravite());
-                
-                // Créer et gérer l'alerte
-                Alerte alerte = new Alerte(releve2, e.getGravite());
-                
-                System.out.println("\n--- Alerte Créée ---");
-                alerte.afficher();
-                
+            } else {
+                alerte2.afficher();
+                System.out.println("Gravité: " + alerte2.getGravite());
                 System.out.println("\n--- Acquittement de l'alerte ---");
-                alerte.acquitter();
-                alerte.afficher();
+                alerte2.acquitter();
+                alerte2.afficher();
             }
             
             // Relevé GPS
             System.out.println("\n--- Relevé GPS ---");
-            Releve releveGPS = capteurGPS.envoyerPosition();
-            releveGPS.afficher();
+            Alerte alertGPS = capteurGPS.envoyerPosition();
+            if (alertGPS == null) {
+                ReleveGPS releveGPS = new ReleveGPS(capteurGPS.getLatitude(), capteurGPS.getLongitude(), capteurGPS);
+                releveGPS.afficher();
+            } else {
+                alertGPS.afficher();
+            }
             
             System.out.println("\n--- Position du capteur GPS ---");
             capteurGPS.afficher();
