@@ -12,31 +12,14 @@ public class ReleveGPS extends Releve {
 
     @Override
     public void verifierSeuil() throws AlerteException {
-        double ecartLatitude = 0.0;
-        double ecartLongitude = 0.0;
-        boolean latitudeHorsBornes = false;
-        boolean longitudeHorsBornes = false;
+        ZoneElevage zone = (ZoneElevage) getCapteur().getZone();
+        double x0 = zone.getLongueur();
+        double y0 = zone.getLargeur();
+        double distance = Math.sqrt(Math.pow(latitude - x0, 2) + Math.pow(longitude - y0, 2));
 
-        if (this.latitude < getCapteur().getSeuilMin()) {
-            latitudeHorsBornes = true;
-            ecartLatitude = getCapteur().getSeuilMin() - this.latitude;
-        } else if (this.latitude > getCapteur().getSeuilMax()) {
-            latitudeHorsBornes = true;
-            ecartLatitude = this.latitude - getCapteur().getSeuilMax();
-        }
-
-        if (this.longitude < getCapteur().getSeuilMin()) {
-            longitudeHorsBornes = true;
-            ecartLongitude = getCapteur().getSeuilMin() - this.longitude;
-        } else if (this.longitude > getCapteur().getSeuilMax()) {
-            longitudeHorsBornes = true;
-            ecartLongitude = this.longitude - getCapteur().getSeuilMax();
-        }
-
-        if (latitudeHorsBornes || longitudeHorsBornes) {
-            double ecartMax = Math.max(ecartLatitude, ecartLongitude);
-            Gravite gravite = ecartMax > 1.0 ? Gravite.CRITIQUE : Gravite.AVERTISSEMENT;
-            throw new AlerteException("Seuil dépassé: GPS position = (" + this.latitude + ", " + this.longitude + ")", gravite);
+        if (distance > getCapteur().getSeuilMax()) {
+            Gravite gravite = distance > getCapteur().getSeuilMax() * 2 ? Gravite.CRITIQUE : Gravite.AVERTISSEMENT;
+            throw new AlerteException("Animal hors zone, distance = " + distance, gravite);
         }
     }
 

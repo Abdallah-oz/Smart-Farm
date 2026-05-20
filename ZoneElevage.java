@@ -55,6 +55,14 @@ public class ZoneElevage extends Zone {
         this.type = type;
     }
 
+    public double getLongueur() {
+        return longueur;
+    }
+
+    public double getLargeur() {
+        return largeur;
+    }
+
     public List<Animal> getAnimaux() {
         return animaux;
     }
