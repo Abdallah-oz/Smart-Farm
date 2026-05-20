@@ -12,6 +12,7 @@ public class CapteurGPS extends Capteur {
 
     public Alerte envoyerPosition() {
         ReleveGPS releve = new ReleveGPS(latitude, longitude, this);
+        enregistrerReleve(releve);
         try {
             releve.verifierSeuil();
         } catch (AlerteException e) {
@@ -23,6 +24,7 @@ public class CapteurGPS extends Capteur {
     @Override
     public Alerte envoyerReleve() {
         ReleveGPS releve = new ReleveGPS(latitude, longitude, this);
+        enregistrerReleve(releve);
         try {
             releve.verifierSeuil();
         } catch (AlerteException e) {

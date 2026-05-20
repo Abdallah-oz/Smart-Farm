@@ -34,7 +34,7 @@ public class ZoneCulture extends Zone {
         for (Culture culture : this.cultures) {
             afficherCulture(culture);
         }
-        System.out.println("Rendement moyen: " + this.rendement);
+        System.out.println("Rendement : " + this.rendement);
     }
 
     public void afficherCulture(Culture culture) {

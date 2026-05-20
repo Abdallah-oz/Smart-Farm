@@ -2,6 +2,7 @@ package TP;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public abstract class Capteur {
     private String code;
@@ -9,6 +10,7 @@ public abstract class Capteur {
     private StatutCapteur statut;
     private double seuilMin;
     private double seuilMax;
+    private List<Releve> historique = new ArrayList<>();
 
     public Capteur(String code, Zone zone, double seuilMin, double seuilMax) {
         this.code = code;
@@ -29,7 +31,27 @@ public abstract class Capteur {
         }
     }
 
+    public List<Releve> getHistorique(LocalDateTime debut, LocalDateTime fin) {
+        List<Releve> resultat = new ArrayList<>();
+        for (Releve releve : historique) {
+            if (releve.getDateHeure().isAfter(debut) && releve.getDateHeure().isBefore(fin)) {
+                resultat.add(releve);
+            }
+        }
+        return resultat;
+    }
+
+    public List<Releve> getHistorique() {
+        return historique;
+    }
+
+    protected void enregistrerReleve(Releve releve) {
+        this.historique.add(releve);
+    }
+
     public abstract Alerte envoyerReleve();
+
+    public abstract void afficher();
 
     // Getters
     public String getCode() {

@@ -59,8 +59,16 @@ public class ZoneElevage extends Zone {
         return longueur;
     }
 
+    public void setLongueur(double longueur) {
+        this.longueur = longueur;
+    }
+
     public double getLargeur() {
         return largeur;
+    }
+
+    public void setLargeur(double largeur) {
+        this.largeur = largeur;
     }
 
     public List<Animal> getAnimaux() {

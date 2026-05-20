@@ -13,4 +13,14 @@ public class GestionnaireCapteurs {
     public static List<Capteur> getCapteurs() {
         return capteurs;
     }
+
+    public static List<Capteur> getCapteursByZone(Zone zone) {
+        List<Capteur> resultat = new ArrayList<>();
+        for (Capteur capteur : capteurs) {
+            if (capteur.getZone() == zone) {
+                resultat.add(capteur);
+            }
+        }
+        return resultat;
+    }
 }

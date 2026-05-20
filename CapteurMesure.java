@@ -15,6 +15,7 @@ public class CapteurMesure extends Capteur {
     public Alerte envoyerMesure(double valeur) {
         this.valeur = valeur;
         ReleveMesure releve = new ReleveMesure(valeur, this);
+        enregistrerReleve(releve);
         try {
             releve.verifierSeuil();
         } catch (AlerteException e) {
@@ -26,6 +27,7 @@ public class CapteurMesure extends Capteur {
     @Override
     public Alerte envoyerReleve() {
         ReleveMesure releve = new ReleveMesure(this.valeur, this);
+        enregistrerReleve(releve);
         try {
             releve.verifierSeuil();
         } catch (AlerteException e) {
