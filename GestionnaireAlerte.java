@@ -1,51 +1,42 @@
 package TP;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
-import TP.Alerte;
-import TP.Gravite;
 
-/**
- * Gestionnaire qui centralise et traite l'ensemble des alertes de la ferme intelligente.
- * Permet d'ajouter, filtrer, compter et afficher les alertes selon leur gravité ou leur statut.
- */
+
+
 public class GestionnaireAlerte {
-    // Liste stockant toutes les alertes reçues par le système
+    
     private List<Alerte> alertes;
-    // Compteur cumulatif du nombre total d'alertes générées depuis le démarrage
+    // Compteur cumulatif du nombre total alertes
     private int compteurAlertes;
 
-    /**
-     * Constructeur par défaut. Initialise la liste vide et le compteur à zéro.
-     */
+    
+     //Constructeur
+     
     public GestionnaireAlerte() {
         this.alertes = new ArrayList<>();
         this.compteurAlertes = 0;
     }
 
-    /**
-     * Enregistre une nouvelle alerte dans le gestionnaire et incrémente le compteur.
-     * @param alerte L'alerte à ajouter
-     */
+    /**/
+     // Enregistre une nouvelle alerte dans le gestionnaire et incrémente le compteur.
+    
     public void ajouterAlerte(Alerte alerte) {
         this.alertes.add(alerte);
         this.compteurAlertes++;
     }
 
-    /**
-     * Supprime définitivement toutes les alertes enregistrées et affiche une confirmation.
-     */
+    /**/
+     // Supprime définitivement toutes les alertes enregistrées
+     
     public void supprimerToutesAlertes() {
         alertes.clear();
         System.out.println("Toutes les alertes ont été supprimées.");
     }
 
-    /**
-     * Recherche une alerte spécifique grâce à son identifiant unique.
-     * @param idAlerte L'identifiant de l'alerte recherchée
-     * @return L'alerte correspondante, ou null si aucune alerte ne possède cet ID
-     */
+   
+     
     public Alerte obtenirAlerteParId(String idAlerte) {
         for (Alerte a : alertes) {
             if (a.getIdAlerte().equals(idAlerte)) {
@@ -55,11 +46,10 @@ public class GestionnaireAlerte {
         return null;
     }
 
-    /**
-     * Récupère la liste de toutes les alertes liées à une zone géographique particulière.
-     * @param codeZone Le code de la zone à filtrer
-     * @return Une liste d'alertes concernant cette zone
-     */
+    
+     // Recupere la liste de toutes les alertes liées a une zone.
+     
+     
     public List<Alerte> obtenirAlerteParZone(String codeZone) {
         List<Alerte> result = new ArrayList<>();
         for (Alerte a : alertes) {
@@ -74,10 +64,10 @@ public class GestionnaireAlerte {
     //          FILTRAGE PAR GRAVITÉ
     // ==========================================
 
-    /**
-     * Récupère toutes les alertes de niveau critique, qu'elles soient actives ou acquittées.
-     * @return Liste des alertes critiques
-     */
+    /**/
+     // Recupere toutes les alertes de niveau critique.
+
+     
     public List<Alerte> obtenirAlertesCritiques() {
         List<Alerte> result = new ArrayList<>();
         for (Alerte a : alertes) {
@@ -88,10 +78,10 @@ public class GestionnaireAlerte {
         return result;
     }
 
-    /**
-     * Récupère uniquement les alertes critiques qui sont encore actives (non acquittées).
-     * @return Liste des alertes critiques actives
-     */
+    /**/
+     // Récupère uniquement les alertes critiques qui sont encore actives.
+     
+     
     public List<Alerte> obtenirAlertesCritiquesActives() {
         List<Alerte> result = new ArrayList<>();
         for (Alerte a : alertes) {
@@ -102,10 +92,10 @@ public class GestionnaireAlerte {
         return result;
     }
 
-    /**
-     * Récupère toutes les alertes de niveau avertissement (warning), actives ou acquittées.
-     * @return Liste des avertissements
-     */
+    /**/
+     // Récupère toutes les alertes de niveau avertissement.
+    
+     
     public List<Alerte> obtenirAvertissements() {
         List<Alerte> result = new ArrayList<>();
         for (Alerte a : alertes) {
@@ -116,10 +106,10 @@ public class GestionnaireAlerte {
         return result;
     }
 
-    /**
-     * Récupère uniquement les avertissements qui sont encore actifs (non acquittés).
-     * @return Liste des avertissements actifs
-     */
+    /**/
+     // Récupère uniquement les avertissements qui sont encore actifs (non acquittés).
+     
+     
     public List<Alerte> obtenirAvertissementsActifs() {
         List<Alerte> result = new ArrayList<>();
         for (Alerte a : alertes) {
@@ -134,10 +124,10 @@ public class GestionnaireAlerte {
     //           FILTRAGE PAR STATUT
     // ==========================================
 
-    /**
-     * Récupère toutes les alertes actives en les triant en utilisant le comparateur d'alertes personnalisé.
-     * @return Liste triée des alertes actives
-     */
+    
+     // Récupère toutes les alertes actives triées.
+      
+     
     public List<Alerte> obtenirAlertesActives() {
         List<Alerte> result = new ArrayList<>();
         for (Alerte a : alertes) {
@@ -150,10 +140,10 @@ public class GestionnaireAlerte {
         return result;
     }
 
-    /**
-     * Récupère la liste de toutes les alertes qui ont été résolues ou acquittées.
-     * @return Liste des alertes acquittées
-     */
+    /**/
+     //Récupère la liste de toutes les alertes qui ont été acquittées.
+     
+    
     public List<Alerte> obtenirAlertesAcquittees() {
         List<Alerte> result = new ArrayList<>();
         for (Alerte a : alertes) {
@@ -176,7 +166,7 @@ public class GestionnaireAlerte {
     }
 
     /**
-     * Compte le nombre d'alertes qui sont actuellement en cours (non acquittées).
+     * Compte le nombre d'alertes qui sont actuellement actives.
      */
     public int compterAlertesActives() {
         int count = 0;
@@ -189,7 +179,7 @@ public class GestionnaireAlerte {
     }
 
     /**
-     * Compte le nombre d'alertes qui ont été traitées et acquittées.
+     * Compte le nombre d'alertes qui ont été acquittées.
      */
     public int compterAlertesAcquittees() {
         int count = 0;
@@ -201,9 +191,9 @@ public class GestionnaireAlerte {
         return count;
     }
 
-    /**
-     * Compte le nombre total d'alertes de niveau critique (actives et résolues).
-     */
+    /**/
+     // Compte le nombre total d'alertes de niveau critique.
+     
     public int compterAlertesCritiques() {
         int count = 0;
         for (Alerte a : alertes) {
@@ -214,9 +204,9 @@ public class GestionnaireAlerte {
         return count;
     }
 
-    /**
-     * Compte le nombre total d'alertes de niveau avertissement (actives et résolues).
-     */
+    /**/
+      //Compte le nombre total d'alertes de niveau avertissement
+     
     public int compterAvertissements() {
         int count = 0;
         for (Alerte a : alertes) {
@@ -231,17 +221,14 @@ public class GestionnaireAlerte {
     //            AFFICHAGES CONSOLE
     // ==========================================
 
-    /**
-     * Affiche un tableau synthétique avec la liste des alertes actives d'un côté,
-     * et les alertes résolues (acquittées) de l'autre.
-     */
+    
     public void afficherPanneauAlertes() {
         System.out.println("\n========================================");
         System.out.println("      PANNEAU DE CONTRÔLE ALERTES       ");
         System.out.println("========================================");
 
         if (alertes.isEmpty()) {
-            System.out.println("Aucune alerte en cours - Tous les capteurs sont OK.");
+            System.out.println("Aucune alerte en cours / Tous les capteurs sont OK.");
             return;
         }
 
@@ -263,9 +250,9 @@ public class GestionnaireAlerte {
         System.out.println("========================================");
     }
 
-    /**
-     * Affiche la liste brute et complète de toutes les alertes du système par ordre chronologique.
-     */
+    /**/
+     
+     
     public void afficherHistoriqueAlertes() {
         System.out.println("\n========================================");
         System.out.println("     HISTORIQUE COMPLET DES ALERTES     ");
@@ -283,7 +270,7 @@ public class GestionnaireAlerte {
     }
 
     /**
-     * Affiche les détails complets de toutes les alertes de niveau critique actuellement actives.
+     * Affiche alertes critiques actives en details 
      */
     public void afficherAlertesCritiques() {
         List<Alerte> critiques = obtenirAlertesCritiquesActives();
@@ -304,7 +291,7 @@ public class GestionnaireAlerte {
     }
 
     /**
-     * Affiche les détails complets de tous les avertissements actuellement actifs.
+     * Affiche alertes detat avertissement en details
      */
     public void afficherAvertissements() {
         List<Alerte> avertissements = obtenirAvertissementsActifs();
@@ -324,9 +311,39 @@ public class GestionnaireAlerte {
         System.out.println("========================================");
     }
 
+    /**/
+     // Retourne toutes les alertes triées par gravité .
+     
+    
+    public List<Alerte> obtenirAlertesTrieesParGravite() {
+        List<Alerte> result = new ArrayList<>(alertes);
+        result.sort(new AlerteComparator());
+        return result;
+    }
+
     /**
-     * Affiche le résumé de toutes les alertes qui concernent une zone spécifique.
-     * @param codeZone Le code de la zone ciblée
+     * Affiche toutes les alertes triées par gravité.
+     */
+    public void afficherAlertesTrieesParGravite() {
+        List<Alerte> tri = obtenirAlertesTrieesParGravite();
+        System.out.println("\n========================================");
+        System.out.println("    ALERTES TRIEES PAR GRAVITE    ");
+        System.out.println("========================================");
+
+        if (tri.isEmpty()) {
+            System.out.println("Aucune alerte dans le gestionnaire.");
+            return;
+        }
+
+        for (Alerte a : tri) {
+            System.out.println(a.obtenirResume());
+        }
+        System.out.println("========================================");
+    }
+
+    /**
+     * Affiche toutes les alertes lies a  une zone.
+     
      */
     public void afficherAlerteParZone(String codeZone) {
         List<Alerte> alertesZone = obtenirAlerteParZone(codeZone);
@@ -346,42 +363,37 @@ public class GestionnaireAlerte {
         System.out.println("========================================");
     }
 
-    // ==========================================
-    //                 GETTERS
-    // ==========================================
+   
 
-    /**
-     * Retourne une copie de la liste complète des alertes.
-     * @return Copie de la liste des alertes
-     */
+    
+     //Retourne une copie de la liste complète des alertes.
+     
+    
     public List<Alerte> getToutesAlertes() {
         return new ArrayList<>(alertes);
     }
 
     /**
-     * Retourne le nombre total d'alertes enregistrées depuis l'initialisation.
+     * Retourne le nombre total d'alertes enregistrées.
      */
     public int getCompteurAlertes() {
         return compteurAlertes;
     }
 }
 
-/**
- * Comparateur personnalisé d'alertes.
- * Permet de trier les alertes par gravité (CRITIQUE d'abord).
- * En cas d'égalité de gravité, les alertes sont triées par date de création (les plus anciennes d'abord).
- */
+/* */
+ 
 class AlerteComparator implements Comparator<Alerte> {
     @Override
     public int compare(Alerte a1, Alerte a2) {
         if (a1.getGravite() == a2.getGravite()) {
-            // Même gravité : on trie par date de création (la plus ancienne d'abord)
+            
             return a1.getDateCreation().compareTo(a2.getDateCreation());
         } else if (a1.getGravite() == Gravite.CRITIQUE) {
-            // a1 est plus critique : il doit venir avant a2 (valeur négative)
+            
             return -1;
         }
-        // a2 est plus critique : il doit venir avant a1 (valeur positive)
+    
         return 1;
     }
 }
