@@ -27,4 +27,10 @@ public class GestionnaireCapteurs {
         }
         return resultat;
     }
+    public static Capteur getCapteurByCode(String code) {
+    for (Capteur c : capteurs) {
+        if (c.getCode().equals(code)) return c;
+    }
+    return null;
+}
 }
