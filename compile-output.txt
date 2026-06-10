@@ -1,0 +1,257 @@
+﻿javac : MainApp.java:1: error: package javafx.application does not exist
+Au caractère Ligne:1 : 1
++ javac MainApp.java 2>&1 | Out-File -Encoding utf8 compile-output.txt  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (MainApp.java:1:... does not exist 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+import javafx.application.Application;
+                         ^
+MainApp.java:2: error: package javafx.geometry does not exist
+import javafx.geometry.Insets;
+                      ^
+MainApp.java:3: error: package javafx.scene does not exist
+import javafx.scene.Scene;
+                   ^
+MainApp.java:6: error: package javafx.stage does not exist
+import javafx.stage.Stage;
+                   ^
+MainApp.java:8: error: cannot find symbol
+public class MainApp extends Application {
+                             ^
+  symbol: class Application
+MainApp.java:10: error: cannot find symbol
+    public void start(Stage primaryStage) {
+                      ^
+  symbol:   class Stage
+  location: class MainApp
+MainApp.java:4: error: package javafx.scene.control does not exist
+import javafx.scene.control.*;
+^
+MainApp.java:5: error: package javafx.scene.layout does not exist
+import javafx.scene.layout.*;
+^
+MainApp.java:15: error: cannot find symbol
+        BorderPane root = new BorderPane();
+        ^
+  symbol:   class BorderPane
+  location: class MainApp
+MainApp.java:15: error: cannot find symbol
+        BorderPane root = new BorderPane();
+                              ^
+  symbol:   class BorderPane
+  location: class MainApp
+MainApp.java:18: error: cannot find symbol
+        MenuBar menuBar = new MenuBar();
+        ^
+  symbol:   class MenuBar
+  location: class MainApp
+MainApp.java:18: error: cannot find symbol
+        MenuBar menuBar = new MenuBar();
+                              ^
+  symbol:   class MenuBar
+  location: class MainApp
+MainApp.java:20: error: cannot find symbol
+        Menu menuZones   = new Menu("Zones");
+        ^
+  symbol:   class Menu
+  location: class MainApp
+MainApp.java:20: error: cannot find symbol
+        Menu menuZones   = new Menu("Zones");
+                               ^
+  symbol:   class Menu
+  location: class MainApp
+MainApp.java:21: error: cannot find symbol
+        Menu menuAnimaux = new Menu("Animaux");
+        ^
+  symbol:   class Menu
+  location: class MainApp
+MainApp.java:21: error: cannot find symbol
+        Menu menuAnimaux = new Menu("Animaux");
+                               ^
+  symbol:   class Menu
+  location: class MainApp
+MainApp.java:22: error: cannot find symbol
+        Menu menuCapteurs= new Menu("Capteurs");
+        ^
+  symbol:   class Menu
+  location: class MainApp
+MainApp.java:22: error: cannot find symbol
+        Menu menuCapteurs= new Menu("Capteurs");
+                               ^
+  symbol:   class Menu
+  location: class MainApp
+MainApp.java:23: error: cannot find symbol
+        Menu menuAlertes = new Menu("Alertes");
+        ^
+  symbol:   class Menu
+  location: class MainApp
+MainApp.java:23: error: cannot find symbol
+        Menu menuAlertes = new Menu("Alertes");
+                               ^
+  symbol:   class Menu
+  location: class MainApp
+MainApp.java:29: error: cannot find symbol
+        VBox navBox = new VBox(10);
+        ^
+  symbol:   class VBox
+  location: class MainApp
+MainApp.java:29: error: cannot find symbol
+        VBox navBox = new VBox(10);
+                          ^
+  symbol:   class VBox
+  location: class MainApp
+MainApp.java:30: error: cannot find symbol
+        navBox.setPadding(new Insets(15));
+                              ^
+  symbol:   class Insets
+  location: class MainApp
+MainApp.java:33: error: cannot find symbol
+        Button btnElevage  = new Button("Zone ╔levage");
+        ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:33: error: cannot find symbol
+        Button btnElevage  = new Button("Zone ╔levage");
+                                 ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:34: error: cannot find symbol
+        Button btnCulture  = new Button("Zone Culture");
+        ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:34: error: cannot find symbol
+        Button btnCulture  = new Button("Zone Culture");
+                                 ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:35: error: cannot find symbol
+        Button btnAquacole = new Button("Zone Aquacole");
+        ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:35: error: cannot find symbol
+        Button btnAquacole = new Button("Zone Aquacole");
+                                 ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:36: error: cannot find symbol
+        Button btnCapteurs = new Button("Capteurs");
+        ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:36: error: cannot find symbol
+        Button btnCapteurs = new Button("Capteurs");
+                                 ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:37: error: cannot find symbol
+        Button btnAlertes  = new Button("Alertes");
+        ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:37: error: cannot find symbol
+        Button btnAlertes  = new Button("Alertes");
+                                 ^
+  symbol:   class Button
+  location: class MainApp
+MainApp.java:47: error: cannot find symbol
+            new Label("Navigation"),
+                ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:48: error: cannot find symbol
+            new Separator(),
+                ^
+  symbol:   class Separator
+  location: class MainApp
+MainApp.java:59: error: cannot find symbol
+        StackPane centerPane = new StackPane();
+        ^
+  symbol:   class StackPane
+  location: class MainApp
+MainApp.java:59: error: cannot find symbol
+        StackPane centerPane = new StackPane();
+                                   ^
+  symbol:   class StackPane
+  location: class MainApp
+MainApp.java:60: error: cannot find symbol
+        centerPane.setPadding(new Insets(15));
+                                  ^
+  symbol:   class Insets
+  location: class MainApp
+MainApp.java:63: error: cannot find symbol
+        Label accueil = new Label("Bienvenue dans le systÞme de gestion 
+agricole.\nChoisissez une section dans le menu gauche.");
+        ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:63: error: cannot find symbol
+        Label accueil = new Label("Bienvenue dans le systÞme de gestion 
+agricole.\nChoisissez une section dans le menu gauche.");
+                            ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:70: error: cannot find symbol
+        Label statusBar = new Label("PrÛt.");
+        ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:70: error: cannot find symbol
+        Label statusBar = new Label("PrÛt.");
+                              ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:71: error: cannot find symbol
+        statusBar.setPadding(new Insets(5, 10, 5, 10));
+                                 ^
+  symbol:   class Insets
+  location: class MainApp
+MainApp.java:81: error: cannot find symbol
+            centerPane.getChildren().add(new Label("Vue Zone ╔levage ù Ó 
+construire"));
+                                             ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:87: error: cannot find symbol
+            centerPane.getChildren().add(new Label("Vue Zone Culture ù Ó 
+construire"));
+                                             ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:93: error: cannot find symbol
+            centerPane.getChildren().add(new Label("Vue Zone Aquacole ù Ó 
+construire"));
+                                             ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:99: error: cannot find symbol
+            centerPane.getChildren().add(new Label("Vue Capteurs ù Ó 
+construire"));
+                                             ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:105: error: cannot find symbol
+            centerPane.getChildren().add(new Label("Vue Alertes ù Ó 
+construire"));
+                                             ^
+  symbol:   class Label
+  location: class MainApp
+MainApp.java:110: error: cannot find symbol
+        Scene scene = new Scene(root, 900, 600);
+        ^
+  symbol:   class Scene
+  location: class MainApp
+MainApp.java:110: error: cannot find symbol
+        Scene scene = new Scene(root, 900, 600);
+                          ^
+  symbol:   class Scene
+  location: class MainApp
+MainApp.java:118: error: cannot find symbol
+        launch(args);
+        ^
+  symbol:   method launch(String[])
+  location: class MainApp
+51 errors

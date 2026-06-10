@@ -34,21 +34,27 @@ public class Alerte {
     }
 
     
-    /*public void supprimer() {
-        System.out.println("Alerte supprimée avec succès.");
-    }*/
-
-   
-    public boolean estActive() {
-        return !this.acquittee;
+    public void supprimer() {
+        System.out.println("Alerte supprimée avec succès : " + this.idAlerte);
     }
 
-    
     public String obtenirResume() {
         String statut = acquittee ? "Acquittée" : "Active";
         return "Alerte #" + idAlerte + " (" + statut + ") - Gravité: " + gravite +
                " - Capteur " + releve.getCapteur().getCode() +
                " en zone " + releve.getCapteur().getZone().getNom();
+    }
+
+    public boolean estActive() {
+        return !this.acquittee;
+    }
+
+    public Gravite getNiveau() {
+        return this.gravite;
+    }
+
+    public String getObjet() {
+        return releve.isGPS() ? "Position hors seuil" : "Mesure hors seuil";
     }
 
     

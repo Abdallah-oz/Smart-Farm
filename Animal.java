@@ -38,6 +38,10 @@ public abstract class Animal {
         }
     }
 
+    public List<EvenementSanitaire> getHistorique() {
+        return historique;
+    }
+
     public void afficher() {
         System.out.println("=== Animal ===");
         System.out.println("Numéro: " + this.numero);
